@@ -31,15 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function onScroll() {
         const y = window.scrollY;
 
-        if (navbar) {
-            if (y > 40) {
-                navbar.style.borderBottomColor = '#b8c4d6';
-                navbar.style.boxShadow = '0 2px 8px rgba(10, 15, 26, 0.08)';
-            } else {
-                navbar.style.borderBottomColor = '';
-                navbar.style.boxShadow = 'none';
-            }
-        }
+        if (navbar) navbar.classList.toggle('scrolled', y > 40);
 
         sections.forEach(section => {
             const top = section.offsetTop - 120;
@@ -162,12 +154,8 @@ function selectDivision(divisionName) {
 
     if (select) {
         select.value = divisionName;
-        select.style.borderColor = '#0b1f44';
-        select.style.boxShadow = '0 0 0 3px rgba(11, 31, 68, 0.2)';
-        setTimeout(() => {
-            select.style.borderColor = '';
-            select.style.boxShadow = '';
-        }, 2000);
+        select.classList.add('flash');
+        setTimeout(() => select.classList.remove('flash'), 2000);
     }
 
     if (message) {
@@ -180,35 +168,3 @@ function selectDivision(divisionName) {
         }
     }
 }
-
-const themeToggle = document.getElementById("theme-toggle");
-
-// Restore the saved theme
-const savedTheme = localStorage.getItem("theme");
-
-if (savedTheme === "dark") {
-    document.documentElement.classList.add("dark-mode");
-}
-
-function updateThemeButton() {
-    const isDark = document.documentElement.classList
-        .contains("dark-mode");
-
-    themeToggle.textContent = isDark
-        ? "☀️ Light Mode"
-        : "🌙 Dark Mode";
-
-    themeToggle.setAttribute("aria-pressed", String(isDark));
-}
-
-updateThemeButton();
-
-// Switch themes
-themeToggle.addEventListener("click", function () {
-    const isDark = document.documentElement.classList
-        .toggle("dark-mode");
-
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-
-    updateThemeButton();
-});
