@@ -4,12 +4,20 @@
    ========================================================== */
 
 :root {
+    color-scheme: light;
     --white: #ffffff;
     --bg-soft: #f5f7fa;
     --bg-tint: #eaeff6;
 
     --navy: #0b1f44;
     --navy-hover: #14306b;
+    --btn-bg: #0b1f44;
+    --btn-hover: #14306b;
+    --frame: #0b1f44;
+    --focus-ring: rgba(11, 31, 68, 0.15);
+    --error-bg: #fef3f2;
+    --error-border: #f4b5ae;
+    --placeholder: #6b7280;
     --black: #0a0f1a;
 
     --text-primary: #0a0f1a;
@@ -202,8 +210,8 @@ a {
     height: 44px;
     border-radius: var(--radius-sm);
     overflow: hidden;
-    border: 1px solid var(--navy);
-    background: var(--navy);
+    border: 1px solid var(--frame);
+    background: var(--frame);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -340,21 +348,21 @@ a {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: var(--navy);
+    background: var(--btn-bg);
     color: #fff !important;
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.95rem;
     padding: 14px 26px;
     border-radius: var(--radius-sm);
-    border: 1px solid var(--navy);
+    border: 1px solid var(--btn-bg);
     cursor: pointer;
     transition: var(--transition);
 }
 
 .btn-primary:hover {
-    background: var(--navy-hover);
-    border-color: var(--navy-hover);
+    background: var(--btn-hover);
+    border-color: var(--btn-hover);
 }
 
 .btn-glow {
@@ -525,9 +533,9 @@ a {
 .visual-card {
     position: relative;
     border-radius: var(--radius-lg);
-    background: var(--navy);
+    background: var(--frame);
     padding: 10px;
-    border: 1px solid var(--navy);
+    border: 1px solid var(--frame);
     box-shadow: var(--shadow-hover);
     max-width: 480px;
     width: 100%;
@@ -630,7 +638,7 @@ a {
     top: -14px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--navy);
+    background: var(--btn-bg);
     color: #fff;
     font-family: var(--font-heading);
     font-size: 0.725rem;
@@ -677,8 +685,8 @@ a {
 }
 
 .featured-icon {
-    background: var(--navy);
-    border-color: var(--navy);
+    background: var(--btn-bg);
+    border-color: var(--btn-bg);
     color: #fff;
 }
 
@@ -807,13 +815,13 @@ a {
 
 .featured-btn {
     color: #fff;
-    background: var(--navy);
+    background: var(--btn-bg);
     padding: 11px 18px;
     border-radius: var(--radius-sm);
 }
 
 .featured-btn:hover {
-    background: var(--navy-hover);
+    background: var(--btn-hover);
     color: #fff;
 }
 
@@ -1201,7 +1209,7 @@ a {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: #6b7280;
+    color: var(--placeholder);
 }
 
 .form-group select {
@@ -1212,7 +1220,7 @@ a {
 .form-group select:focus,
 .form-group textarea:focus {
     border-color: var(--navy);
-    box-shadow: 0 0 0 3px rgba(11, 31, 68, 0.15);
+    box-shadow: 0 0 0 3px var(--focus-ring);
 }
 
 .form-group input.invalid,
@@ -1223,8 +1231,8 @@ a {
 .form-error {
     font-size: 0.85rem;
     color: var(--error);
-    background: #fef3f2;
-    border: 1px solid #f4b5ae;
+    background: var(--error-bg);
+    border: 1px solid var(--error-border);
     border-radius: var(--radius-sm);
     padding: 10px 14px;
 }
@@ -1372,7 +1380,7 @@ a {
     width: 64px;
     height: 64px;
     margin: 0 auto 20px;
-    background: var(--navy);
+    background: var(--btn-bg);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1445,8 +1453,8 @@ a {
     width: 38px;
     height: 38px;
     border-radius: var(--radius-sm);
-    border: 1px solid var(--navy);
-    background: var(--navy);
+    border: 1px solid var(--frame);
+    background: var(--frame);
 }
 
 .footer-brand-title {
@@ -1590,7 +1598,7 @@ a {
     left: 12px;
     top: -60px;
     z-index: 3000;
-    background: var(--navy);
+    background: var(--btn-bg);
     color: #fff;
     font-weight: 700;
     padding: 10px 16px;
@@ -1725,56 +1733,113 @@ textarea:focus-visible {
         right: 18px;
     }
 }
-/* Theme colours */
-:root {
-    --bg-color: #ffffff;
-    --text-color: #222222;
-    --card-color: #f4f4f4;
-    --border-color: #dddddd;
+
+
+/* ==========================================================
+   Dark theme (flat colours, no gradients)
+   Applied with <html data-theme="dark">
+   ========================================================== */
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --white: #0b1426;
+    --bg-soft: #101c36;
+    --bg-tint: #17284a;
+
+    --navy: #a9c1f5;
+    --navy-hover: #c7d6f8;
+    --btn-bg: #2f5fd0;
+    --btn-hover: #4474e6;
+    --frame: #0b1f44;
+    --focus-ring: rgba(169, 193, 245, 0.3);
+    --error-bg: #3a1512;
+    --error-border: #7a2a22;
+    --placeholder: #8391ab;
+
+    --black: #f3f6fc;
+    --text-primary: #f3f6fc;
+    --text-secondary: #d3dbea;
+    --text-muted: #9aa8c2;
+
+    --border: #26385c;
+    --border-strong: #3a4f78;
+
+    --error: #ff8a80;
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
-/* Dark theme */
-html.dark-mode {
-    --bg-color: #121212;
-    --text-color: #f1f1f1;
-    --card-color: #1e1e1e;
-    --border-color: #444444;
+/* --- Header scroll state (replaces inline styles) --- */
+.navbar.scrolled {
+    border-bottom-color: var(--border-strong);
+    box-shadow: 0 2px 8px rgba(10, 15, 26, 0.1);
 }
 
-/* Apply theme colours */
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.25s, color 0.25s;
+/* --- Pre-selected field highlight --- */
+.flash {
+    border-color: var(--navy) !important;
+    box-shadow: 0 0 0 3px var(--focus-ring) !important;
 }
 
-/* Common elements */
-header,
-nav,
-main,
-section,
-article,
-aside,
-footer,
-.card {
-    background-color: var(--card-color);
-    color: var(--text-color);
+/* --- Theme toggle --- */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
 }
 
-/* Form fields */
-input,
-textarea,
-select {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-strong);
+    background: var(--white);
+    color: var(--navy);
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-/* Links */
-a {
-    color: #2563eb;
+.theme-toggle:hover {
+    background: var(--bg-tint);
 }
 
-html.dark-mode a {
-    color: #93c5fd;
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+    display: block;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+    display: none;
+}
+
+/* Dark-mode touch-ups */
+:root[data-theme="dark"] .btn-primary:hover .btn-icon {
+    transform: translateX(4px);
+}
+
+:root[data-theme="dark"] .mobile-wa-btn,
+:root[data-theme="dark"] .btn-whatsapp-direct,
+:root[data-theme="dark"] .wa-icon-wrapper {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .nav-right {
+        gap: 10px;
+    }
 }
